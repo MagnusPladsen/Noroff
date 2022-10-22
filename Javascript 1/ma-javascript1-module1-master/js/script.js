@@ -60,28 +60,9 @@ printListItemName(cats);
 //QUESTION 8
 const catContainer = document.querySelector(".cat-container");
 
-
-/* SOLUTION THAT FILLS THIS REQUIREMENT: Assign the return value of the function to the innerHTML property of the element on the HTML page with a class of cat-container. */
-function createCats(cats) {
-  const divs = [];
-  cats.forEach((cat) => {
-    if (cat.age) {
-      const div = `<div><h5>${cat.name}</h5><p>${cat.age}</p></div>`;
-      divs.push(div)
-    } else {
-      const div = `<div><h5>${cat.name}</h5><p>Age unknown</p></div>`;
-      divs.push(div)
-    }
-  });
-  return divs
-}
-
-catContainer.innerHTML = createCats(cats);
-
-
-/* SOLUTION THAT IS BETTER WRITTEN, SHORTER AND HAS A BETTER RESULT 
+/* SOLUTION THAT IS SHORTER
 IT DOES NOT FILL THIS REQUIREMENT Assign the return value of the function to the innerHTML property of the element on the HTML page with a class of cat-container. */
-function createCatsClean(cats) {
+function createCatsShort(cats) {
   cats.forEach((cat) => {
     if (cat.age) {
       catContainer.innerHTML += `<div><h5>${cat.name}</h5><p>${cat.age}</p></div>`;
@@ -91,5 +72,15 @@ function createCatsClean(cats) {
   });
 }
 
-/* createCatsClean(cats); */
+/* createCatsShort(cats); */
 
+
+function createCatHTML(cat) {
+  if (cat.age) {
+    return `<div><h5>${cat.name}</h5><p>${cat.age}</p></div>`;
+  } else {
+    return `<div><h5>${cat.name}</h5><p>Unknown age</p></div>`;
+    }
+}
+
+cats.forEach((cat) => catContainer.innerHTML += createCatHTML(cat))
