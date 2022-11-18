@@ -2,7 +2,7 @@ const url = "https://api.themoviedb.org/3/movie/"
 const apiKey = "7a0622079eb690b7d401c60fcb58a720"
 const apiUrl = "?api_key=" + apiKey
 
-const fetchTopRatedGames = async () => {
+export const fetchTopRatedGames = async () => {
     try {
     const response = await fetch(url + "top_rated" + apiUrl);
     const results = await response.json();
@@ -15,4 +15,4 @@ const fetchTopRatedGames = async () => {
 
 }
 
-export { fetchTopRatedGames };
+

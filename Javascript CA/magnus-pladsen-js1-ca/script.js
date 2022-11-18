@@ -1,11 +1,12 @@
-import { fetchTopRatedGames } from "./fetching";
+import { fetchTopRatedGames } from "./scripts/fetching.js";
+
 
 const movieContainer = document.querySelector(".movie-container");
 
 const displayMovies = async () => {
     fetchTopRatedGames().then((data) => {
-        console.log(data);
+        console.log(data.results);
     })
 }
 
-displayMovies();
+fetchTopRatedGames();
